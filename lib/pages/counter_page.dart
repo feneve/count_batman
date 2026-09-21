@@ -23,7 +23,7 @@ class CounterPage extends StatelessWidget {
         builder: (context, state) {
           // Usamos a mesma semente (Seed) no Random para não mudar 
           // a posição das imagens já existentes a cada clique
-          final random = Random(42);
+          final random = Random(28);
 
           return Stack(
             children: [
@@ -68,6 +68,11 @@ class CounterPage extends StatelessWidget {
             child: const Icon(Icons.add),
           ),
           const SizedBox(height: 10),
+          FloatingActionButton(
+            onPressed: ()=> counterBloc.add(CounterDoubleIncrementPressed()),
+            child: const Icon(Icons.looks_two),
+            ),
+            const SizedBox(height: 10),
           FloatingActionButton(
             heroTag: 'btn2',
             onPressed: () => counterBloc.add(CounterDecrementPressed()),
